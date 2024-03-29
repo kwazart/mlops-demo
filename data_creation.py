@@ -40,6 +40,7 @@ def write_file(filename, np_data, is_target: bool, column_names, train_dir_path=
     :param filename: базовое наименование файла
     :param np_data: данные для записи
     :param is_target: логическое указание является ли файл таргетом или нет
+    :param column_names: список наименований колонок
     :param train_dir_path: путь до тренировочной директории
     :param test_dir_path:  путь до тестовой директории
     :return: множество их двух строк, содержащие пути дос с=записанных файлов
@@ -74,8 +75,7 @@ feat_1_feat_2 = np.stack((feature_1, feature_2), axis=1)
 feat_3_feat_4 = np.stack((feature_3, feature_4), axis=1)
 target = create_data(5, 2)
 
-files = []
-files.append(write_file("feat_1_feat_2", feat_1_feat_2, False, ['feat_1', 'feat_2']))
-files.append(write_file("feat_3_feat_4", feat_3_feat_4, False, ['feat_3', 'feat_4']))
-files.append(write_file("target", target, True, ['target']))
+files = [write_file("feat_1_feat_2", feat_1_feat_2, False, ['feat_1', 'feat_2']),
+         write_file("feat_3_feat_4", feat_3_feat_4, False, ['feat_3', 'feat_4']),
+         write_file("target", target, True, ['target'])]
 print(f"--- Data written to files: {files}")

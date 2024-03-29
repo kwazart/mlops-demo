@@ -4,4 +4,5 @@ python ./model_preprocessing.py
 python ./model_preparation.py
 python ./model_testing.py
 
-#python ./cleaner.py
+# optional
+python ./cleaner.py
